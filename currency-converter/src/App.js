@@ -63,8 +63,6 @@ class App extends React.Component {
         </div>
 
         <div className="row">
-          {/* <h3 className="currency-flag AUD">{currencyA.name}</h3> */}
-          {/* Currency A input */}
           <div>
             <span>{currencyA.sign}</span>
             <input
@@ -81,10 +79,6 @@ class App extends React.Component {
 
           <img src="/equal.png" alt="equal sign"></img>
 
-          {/* <h3>{currencyB.name}</h3> */}
-          {
-            //Currency B inputs
-          }
           <div>
             <span>{currencyB.sign}</span>
             <input
