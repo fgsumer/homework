@@ -1,5 +1,6 @@
 import React from 'react';
 import CONTACTS from '../contacts/MockData.js';
+import PersonCard from './PersonCard.js';
 
 class Search extends React.Component {
   constructor(props) {
@@ -18,11 +19,13 @@ class Search extends React.Component {
 
   render() {
     const { persons, query } = this.state;
+
     let filteredPersons = persons.filter(
       person =>
         person.firstName.toLowerCase().indexOf(query) !== -1 ||
         person.lastName.toLowerCase().indexOf(query) !== -1,
     );
+
     let mappedPersons = filteredPersons.map(person => (
       <div className="contactlist" key={person.id}>
         <img
@@ -30,7 +33,6 @@ class Search extends React.Component {
           alt="avatar"
           src={require(`../contacts/profiles/${person.profileImage}`)}
         />
-
         <p>
           {person.firstName} <span style={{ fontWeight: 'bold' }}>{person.lastName}</span>
         </p>
@@ -38,18 +40,20 @@ class Search extends React.Component {
     ));
 
     return (
-      <div className="sidebar">
-        <form>
-          <input
-            className="search"
-            type="text"
-            value={this.query}
-            onChange={this.searchHandler}
-          ></input>
-        </form>
-        <div>{mappedPersons}</div>
-        <i className="fa fa-youtube"></i>
-      </div>
+      <>
+        <div className="sidebar">
+          <form>
+            <input
+              className="search"
+              type="text"
+              value={this.query}
+              onChange={this.searchHandler}
+            ></input>
+          </form>
+          <div>{mappedPersons}</div>
+        </div>
+        <PersonCard person={filteredPersons}></PersonCard>
+      </>
     );
   }
 }

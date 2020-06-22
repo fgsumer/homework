@@ -14,6 +14,13 @@ header {
 h6 {
   background-color: #1d1d25;
 }
+
+h1 {
+  float: right;
+  border: 3px solid red;
+  z-index: 5;
+  color: black;
+}
 .sidebar {
   position: absolute;
   width: 350px;
