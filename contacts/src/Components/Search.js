@@ -8,9 +8,11 @@ class Search extends React.Component {
     this.state = {
       persons: CONTACTS,
       query: '',
+      // isActive: false,
     };
     this.searchHandler = this.searchHandler.bind(this);
   }
+
   searchHandler(event) {
     this.setState({
       query: event.target.value,
