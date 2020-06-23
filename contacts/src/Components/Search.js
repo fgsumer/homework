@@ -1,6 +1,6 @@
 import React from 'react';
 import CONTACTS from '../contacts/MockData.js';
-import PersonCard from './PersonCard.js';
+// import PersonCard from './PersonCard.js';
 
 class Search extends React.Component {
   constructor(props) {
@@ -24,8 +24,8 @@ class Search extends React.Component {
 
     let filteredPersons = persons.filter(
       person =>
-        person.firstName.toLowerCase().indexOf(query) !== -1 ||
-        person.lastName.toLowerCase().indexOf(query) !== -1,
+        person.firstName.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
+        person.lastName.toLowerCase().indexOf(query.toLowerCase()) !== -1,
     );
 
     let mappedPersons = filteredPersons.map(person => (
@@ -54,7 +54,8 @@ class Search extends React.Component {
           </form>
           <div>{mappedPersons}</div>
         </div>
-        <PersonCard person={filteredPersons}></PersonCard>
+        <div style={{ borderColor: 'red', float: 'right' }}>{mappedPersons[0]}</div>
+        {/* <PersonCard person={filteredPersons[0]}></PersonCard> */}
       </>
     );
   }
