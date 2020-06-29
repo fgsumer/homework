@@ -11,7 +11,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // persons: contacts,
       query: '',
     };
     this.searchHandler = this.searchHandler.bind(this);
@@ -21,6 +20,7 @@ class App extends React.Component {
       query: event.target.value,
     });
   }
+
   render() {
     const { query } = this.state;
 
@@ -33,13 +33,19 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <div className="main">
+        <div className="flex_container">
           <SearchContacts
             searchHandler={this.searchHandler}
             query={query}
             filteredPersons={filteredPersons}
           />
-          <ContactDetails filteredPersons={filteredPersons} />
+          {filteredPersons.length === 0 ? (
+            <h1 className="contact_details" style={{ margin: 0 }}>
+              No such person
+            </h1>
+          ) : (
+            <ContactDetails filteredPersons={filteredPersons} />
+          )}
         </div>
       </div>
     );
