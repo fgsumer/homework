@@ -1,12 +1,12 @@
 import React from 'react';
 
-function Hearder() {
+function Header() {
   return (
-    <header>
+    <header style={{ background: '#323142', display: 'flex', flexDirection: 'row' }}>
       <h3>Contacts</h3>
       <h6>Create Contact</h6>
     </header>
   );
 }
 
-export default Hearder;
+export default Header;
