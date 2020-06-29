@@ -3,6 +3,12 @@
   color: #e4e4e4;
   font-family: 'Roboto', sans-serif;
 }
+.flex_container {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
 header {
   background: #323142;
   display: flex;
@@ -13,27 +19,68 @@ header {
 }
 h6 {
   background-color: #1d1d25;
+  padding: 0.2rem;
 }
-
-.person_card {
-  padding-left: 350px;
-  z-index: 5;
-  background-color: #2a2730;
-  width: 100%;
+/* ______CONTACT LIST______ */
+input {
+  font: Roboto;
+  border-width: 0px;
+  font: 18px Arial;
+}
+.search {
+  background: #262537;
+  width: 17rem;
+  height: 3rem;
+  margin: 1rem;
+}
+.contacts_list {
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  /* border: 2px solid yellow; */
-  display: flex;
+  overflow-y: scroll;
+  background-color: #1d1d25;
+  color: #fbf7f7;
+  font-family: Roboto;
+  width: 25%;
 }
-.person_name {
+.list_items {
   display: flex;
   flex-direction: row;
+  align-items: center;
+}
+.list_items > img {
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  margin: 0.5rem 1rem 0.5rem 1rem;
 }
 
+/* ______DETAILS______ */
+.contact_details {
+  background: #2a2730;
+  height: 100vh;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+}
+h1 {
+  text-align: center;
+  vertical-align: middle;
+  padding: 6rem;
+}
+.contact_name {
+  display: flex;
+  flex-direction: row;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 3rem;
+}
+.column > img {
+  border-radius: 100%;
+  width: 9rem;
+  height: 9rem;
+  margin: 0.5rem 1rem 0.5rem 1rem;
+}
 .row {
-  /* border: 2px solid red; */
-  height: 100px;
+  padding: 2rem 0 0 0;
+  height: 12rem;
 }
 .row:after {
   content: '';
@@ -49,51 +96,4 @@ h6 {
 .column {
   float: left;
   width: 30%;
-}
-
-.person_details > p {
-  font-size: 14px;
-  line-height: 16px;
-}
-.person_details_more {
-  padding-left: 30px;
-}
-.person_name > img {
-  border-radius: 100%;
-  width: 50px;
-  height: 50px;
-}
-.sidebar {
-  position: absolute;
-  width: 350px;
-  height: 100vh;
-  overflow-y: scroll;
-  left: 0px;
-  background-color: #1d1d25;
-}
-.search {
-  background: #262537;
-  border: none;
-  height: 42px;
-  width: 15rem;
-  margin: 15px 15px;
-  display: flex;
-  flex-direction: row;
-  /* align-items: center; */
-  /* padding: 0 10px; */
-}
-.contactlist {
-  display: flex;
-  flex-direction: row;
-  padding-top: 0.5rem;
-}
-.icon {
-  border-radius: 100%;
-  width: 36px;
-  height: 36px;
-  margin-left: 20px;
-  margin-right: 10px;
-}
-p {
-  margin-bottom: 10px;
 }
