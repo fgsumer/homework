@@ -1,27 +1,12 @@
 import React from 'react';
 
-function ContactDetails({ filteredPersons }) {
-  const mapped = filteredPersons.map(person => (
-    <div className="contact_details" style={{ color: 'red' }} key={person.id}>
-      <div className="contact_name">
-        {/* <img
-          className="icon"
-          alt="avatar"
-          src={`./profiles/${person.profileImage}`}
-          // src={'./profiles/female-1.jpg'}
-        /> */}
-        {/* <p>
-          {person.firstName} <span style={{ fontWeight: 'bold' }}>{person.lastName}</span>
-        </p> */}
-      </div>
+const ContactDetails = ({ person }) => {
+  return (
+    <div className="contact_details" style={{ color: 'red' }}>
+      <div className="contact_name"></div>
       <div className="row">
         <div className="column">
-          <img
-            className="icon"
-            alt="avatar"
-            src={`./profiles/${person.profileImage}`}
-            // src={'./profiles/female-1.jpg'}
-          />
+          <img className="icon" alt="avatar" src={`./profiles/${person.profileImage}`} />
         </div>
         <div className="column">
           <p style={{ fontSize: '3rem' }}>
@@ -44,8 +29,7 @@ function ContactDetails({ filteredPersons }) {
         </div>
       </div>
     </div>
-  ));
-  return <>{mapped[0]}</>;
-}
+  );
+};
 
 export default ContactDetails;

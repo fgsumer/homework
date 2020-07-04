@@ -41,18 +41,22 @@ input {
   font-family: Roboto;
   width: 25%;
 }
-.list_items {
+.list_item {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.list_items > img {
+.list_item > img {
   border-radius: 100%;
   width: 50px;
   height: 50px;
   margin: 0.5rem 1rem 0.5rem 1rem;
 }
 
+.list_item.active {
+  background: blue;
+  cursor: pointer;
+}
 /* ______DETAILS______ */
 .contact_details {
   background: #2a2730;
@@ -61,6 +65,7 @@ input {
   display: flex;
   flex-direction: column;
 }
+
 h1 {
   text-align: center;
   vertical-align: middle;

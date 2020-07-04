@@ -12,22 +12,34 @@ class App extends React.Component {
     super(props);
     this.state = {
       query: '',
+      activePerson: contacts[0],
     };
-    this.searchHandler = this.searchHandler.bind(this);
+
+    this.onSearchHandler = this.onSearchHandler.bind(this);
+    this.onSetActivePerson = this.onSetActivePerson.bind(this);
   }
-  searchHandler(event) {
+
+  onSearchHandler(event) {
     this.setState({
       query: event.target.value,
+    });
+
+    console.log(this.query);
+  }
+
+  onSetActivePerson(person) {
+    this.setState({
+      activePerson: person,
     });
   }
 
   render() {
-    const { query } = this.state;
+    const { query, activePerson } = this.state;
 
     let filteredPersons = contacts.filter(
       person =>
-        person.firstName.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
-        person.lastName.toLowerCase().indexOf(query.toLowerCase()) !== -1,
+        person.firstName.toLowerCase().includes(query.toLowerCase()) ||
+        person.lastName.toLowerCase().includes(query.toLowerCase()),
     );
 
     return (
@@ -35,16 +47,18 @@ class App extends React.Component {
         <Header />
         <div className="flex_container">
           <SearchContacts
-            searchHandler={this.searchHandler}
+            onSearchHandler={this.onSearchHandler}
             query={query}
-            filteredPersons={filteredPersons}
+            person={filteredPersons}
+            activePerson={activePerson}
+            onSetActivePerson={this.onSetActivePerson}
           />
           {filteredPersons.length === 0 ? (
             <h1 className="contact_details" style={{ margin: 0 }}>
               No such person
             </h1>
           ) : (
-            <ContactDetails filteredPersons={filteredPersons} />
+            <ContactDetails person={activePerson} />
           )}
         </div>
       </div>
